@@ -8,8 +8,8 @@ import ReactaMapGL, {
   GeolocateControl,
 } from "react-map-gl";
 import { useState, useEffect } from "react";
-import * as parkData from "./data/Skateboard_Parks.json";
 import CityInfo from "./components/cityInfo";
+import FileUpload from "./components/fileUpload";
 
 const geolocateStyle = {
   top: 0,
@@ -36,11 +36,12 @@ const scaleControlStyle = {
 };
 
 function App() {
+  const [parkData, setParkData] = useState([])
   const [viewport, setViewPort] = useState({
     latitude: 45.4211,
     longitude: -75.6903,
-    width: "100vw",
-    height: "100vh",
+    width: "50vw",
+    height: "50vh",
     zoom: 10,
   });
 
@@ -69,11 +70,11 @@ function App() {
         }}
         mapStyle="mapbox://styles/mapbox/streets-v10"
       >
-        {parkData.features.map((park) => (
+        {parkData.length !== 0 && parkData.map((park) => (
           <Marker
-            id={park.properties.PARK_ID}
-            latitude={park.geometry.coordinates[1]}
-            longitude={park.geometry.coordinates[0]}
+            id={park.PARK_ID}
+            latitude={park.Y}
+            longitude={park.X}
           >
             <button
               className="marker-btn"
@@ -91,8 +92,8 @@ function App() {
           <Popup
             tipSize={5}
             anchor="bottom"
-            latitude={selectedPark.geometry.coordinates[1]}
-            longitude={selectedPark.geometry.coordinates[0]}
+            latitude={selectedPark.Y}
+            longitude={selectedPark.X}
             onClose={() => {
               setSelectedPark(null);
             }}
@@ -105,6 +106,7 @@ function App() {
         <NavigationControl style={navStyle} />
         <ScaleControl style={scaleControlStyle} />
       </ReactaMapGL>
+      <FileUpload onFileUpload={setParkData}/>
     </div>
   );
 }
