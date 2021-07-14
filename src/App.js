@@ -3,7 +3,6 @@ import ReactaMapGL, {
   Marker,
   Popup,
   NavigationControl,
-  FullscreenControl,
   ScaleControl,
   GeolocateControl,
 } from "react-map-gl";
@@ -13,12 +12,6 @@ import FileUpload from "./components/fileUpload";
 
 const geolocateStyle = {
   top: 0,
-  left: 0,
-  padding: "10px",
-};
-
-const fullscreenControlStyle = {
-  top: 36,
   left: 0,
   padding: "10px",
 };
@@ -38,11 +31,11 @@ const scaleControlStyle = {
 function App() {
   const [parkData, setParkData] = useState([])
   const [viewport, setViewPort] = useState({
-    latitude: 45.4211,
-    longitude: -75.6903,
+    latitude: 5.66667, 
+    longitude: -73.0,
     width: "50vw",
     height: "50vh",
-    zoom: 10,
+    zoom: 7,
   });
 
   const [selectedPark, setSelectedPark] = useState(null);
@@ -70,9 +63,9 @@ function App() {
         }}
         mapStyle="mapbox://styles/mapbox/streets-v10"
       >
-        {parkData.length !== 0 && parkData.map((park) => (
+        {parkData.length !== 0 && parkData.map((park, index) => (
           <Marker
-            id={park.PARK_ID}
+            id={index}
             latitude={park.Y}
             longitude={park.X}
           >
@@ -102,7 +95,6 @@ function App() {
           </Popup>
         ) : null}
         <GeolocateControl style={geolocateStyle} />
-        <FullscreenControl style={fullscreenControlStyle} />
         <NavigationControl style={navStyle} />
         <ScaleControl style={scaleControlStyle} />
       </ReactaMapGL>
