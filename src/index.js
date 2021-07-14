@@ -5,6 +5,9 @@ import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
+    <div class="logo">
+      <img src="/logo-cor.png" alt="Logo Corpochivor" />
+    </div>
     <App />
   </React.StrictMode>,
   document.getElementById('root')
