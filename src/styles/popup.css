@@ -1,3 +1,80 @@
 .popup {
-    max-width: 300px;
+  height: 40vh;
+  width: 40vw;
+  padding: 1vh 1vw;
+  background-color: #215466;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 5vw), 1fr));
+  font-family: "Lato";
+  color: #fff;
+}
+
+.info {
+  grid-column: 2 / 7;
+  align-self: center;
+  align-items: center;
+  border-left: 2px solid #97bf3a;
+}
+
+.card-logo img {
+  height: auto;
+  max-width: 100%;
+  border: none;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  margin-top: 2vh;
+}
+
+.card-logo span{
+  font-size: small;
+}
+
+.popup h3 {
+  padding: 1vh 1vw;
+  margin: 0;
+  align-self: center;
+}
+
+.popup p {
+  padding-bottom: 2%;
+  width: 100%;
+  border-bottom: 2px solid #97bf3a;
+  margin: 0;
+  overflow: hidden;
+}
+
+.social{
+  display: flex;
+  justify-content: center;
+  margin: 1.5vh 1vw;
+}
+
+.facebook {
+  padding: 0 0.5vw;
+}
+
+.facebook button {
+  background-color: #3b5998;
+  color: #fff;
+  transition: 500ms;
+}
+
+button:hover {
+  cursor: pointer;
+  box-shadow: 0px 3px 10px rgba(255, 255, 255, 0.25);
+  font: 400 13px Arial;
+}
+
+.instagram {
+  padding: 0 0.5vw;
+}
+
+.instagram button {
+  background: #d6249f;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+  color: #fff;
+  transition: 500ms;
 }

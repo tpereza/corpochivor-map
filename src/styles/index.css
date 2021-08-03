@@ -1,6 +1,10 @@
-body {
+body{
   margin: 0;
   padding: 0;
+  overflow: hidden;
+}
+
+#root {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -10,7 +14,7 @@ body {
   height: 100vh;
   background-image: url(../assets/background.png);
   background-size: contain;
-  position: relative;
+  overflow: hidden;
 }
 
 code {
@@ -18,15 +22,30 @@ code {
     monospace;
 }
 
-.logo {
-  top: 25%;
-  left: 25%;
-  transform: translate(15%, 40%);
-  width: 15vw;
-  height: auto;
+.App {
+  text-align: center;
+  position: relative;
+  margin: 2vh 18vw;
+  background-color: #fff;
+  padding: 3vh;
+  border-radius: 1em;
+  box-shadow: 0 0 15px 0 rgb(0 0 0 / 50%);
 }
 
-.logo img {
+header{
+  width: 100%;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 20vw), 1fr));
+  place-items: center;
+  margin-top: 5vh;
+}
+
+.logo-ventanilla {
+  padding: 2vh 0 0 3vw;
+}
+
+.logo-ventanilla img {
   height: auto;
   max-width: 100%;
   border: none;
@@ -34,4 +53,19 @@ code {
   border-radius: 0;
   -webkit-box-shadow: none;
   box-shadow: none;
+}
+
+.logo {
+  grid-column: 2 / 4;
+}
+
+.logo-text {
+  color: #215466;
+  font-size: 3vw;
+  font-weight: bold;
+}
+
+.text-alt {
+  font-weight: 350;
+  color: #7DA329;
 }
